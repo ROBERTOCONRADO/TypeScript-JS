@@ -21,11 +21,11 @@ const preco: number = 100;
   Conserte a função com typescript
 
 function normalizarTexto(texto) {
-  return texto.trim().toLowercase();
+  return texto.trims().toLowerCase();
 }
 
 */
 function normalizarTexto(texto: string) {
   return texto.trim().toLowerCase();
 }
-console.log(normalizarTexto(' ÓLA, SEJA BEM-VINDO(a). '));
+console.log(normalizarTexto('ÓLA, SEJA BEM-VINDO(a).'));
