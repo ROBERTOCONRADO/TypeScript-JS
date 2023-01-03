@@ -12,3 +12,20 @@ function multiplicar(e: number, f: number) {
   return e * f;
 }
 console.log(multiplicar(8, 10));
+
+let produto: string = "livro";
+const preco: number = 100;
+
+
+/*    Exercicio 1  
+  Conserte a função com typescript
+
+function normalizarTexto(texto) {
+  return texto.trims().toLowerCase();
+}
+
+*/
+function normalizarTexto(texto: string) {
+  return texto.trim().toLowerCase();
+}
+console.log(normalizarTexto('ÓLA, SEJA BEM-VINDO(a).'));
