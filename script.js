@@ -74,3 +74,24 @@ function toNumber(value) {
     }
 }
 console.log(toNumber('300'));
+function preencherDados(dados) {
+    document.body.innerHTML += `
+  <div>
+    <h2>${dados.nome}</h2>
+    <p> Valor: R$ ${dados.preco}</p>
+    <p>Inclui teclado: ${dados.teclado ? 'Acompanha teclado mecânico.' : 'Não vem com teclado.'}</p>
+    <p>Inclui mouse: ${dados.mouse ? 'Acompanha mouse sem fio.' : 'Não vem com mouse.'}</p>
+  </div>`;
+}
+preencherDados({
+    nome: 'Notebook Core I5',
+    preco: 2999,
+    teclado: false,
+    mouse: true,
+});
+preencherDados({
+    nome: 'Computador',
+    preco: 2300,
+    teclado: true,
+    mouse: true,
+});
