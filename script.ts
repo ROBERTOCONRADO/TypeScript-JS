@@ -15,7 +15,7 @@ console.log(multiplicar(8, 10));
 
 let produto: string = "livro";
 const preco: number = 100;
-
+ 
 
 /*    Exercicio 1  
   Conserte a função com typescript
@@ -29,6 +29,7 @@ function normalizarTexto(texto: string) {
   return texto.trim().toLowerCase();
 }
 console.log(normalizarTexto(' ÓLA, SEJA BEM-VINDO(a). '));
+
 
 /*    Exercicio 2 
   Conserte as funções com typescript
@@ -65,3 +66,23 @@ function totalMudou() {
 if(input) {
   input.addEventListener("keyup", totalMudou);
 }
+
+
+/*    Exercicio 3 
+1 - Crie uma função chamada toNumber
+2 - A função pode receber number | string
+3 - Se a função receber número, retorne um número
+4 - Se a função receber string, retorne um número
+5 - Se ela receber algo diferente, retorne um erro. (throw "value deve ser um número ou uma string")
+*/
+
+function toNumber(value: number | string) {
+  if(typeof value === "number") {
+    return value;
+  } else if(typeof value === "string") {
+    return Number(value);
+  } else {
+    throw "O valor deve ser um número ou string";
+  }
+}
+console.log(toNumber('300'));
