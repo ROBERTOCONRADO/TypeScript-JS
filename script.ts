@@ -121,3 +121,20 @@ preencherDados({
   teclado: true,
   mouse: true,
 });
+
+// 
+
+type Categorias = "Back-End" | "Front-End" | "Full-Stack" | "UI/UX Designer";
+
+function mostrarCategoria(categoria: Categorias) {
+  if (categoria === "Front-End") {
+    console.log("Desenvolvedor Front-End");
+  } else if (categoria === "Back-End") {
+    console.log("Desenvolvedor Back-End");
+  } else if (categoria === "UI/UX Designer") {
+    console.log("User Experience");  
+  } else {
+    console.log("Desenvolvedor Full-Stack");
+  }
+}
+mostrarCategoria("Full-Stack");

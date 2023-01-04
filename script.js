@@ -95,3 +95,18 @@ preencherDados({
     teclado: true,
     mouse: true,
 });
+function mostrarCategoria(categoria) {
+    if (categoria === "Front-End") {
+        console.log("Desenvolvedor Front-End");
+    }
+    else if (categoria === "Back-End") {
+        console.log("Desenvolvedor Back-End");
+    }
+    else if (categoria === "UI/UX Designer") {
+        console.log("User Experience");
+    }
+    else {
+        console.log("Desenvolvedor Full-Stack");
+    }
+}
+mostrarCategoria("Full-Stack");
