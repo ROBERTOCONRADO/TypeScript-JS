@@ -122,7 +122,7 @@ preencherDados({
   mouse: true,
 });
 
-// 
+// type
 
 type Categorias = "Back-End" | "Front-End" | "Full-Stack" | "UI/UX Designer";
 
@@ -138,3 +138,46 @@ function mostrarCategoria(categoria: Categorias) {
   }
 }
 mostrarCategoria("Full-Stack");
+
+// Exercício 4 
+// Desina a interface da API: https://api.origamid.dev/json/notebook.json e mostre os dados na tela.
+async function fetchProduct() {
+  const response = await fetch("https://api.origamid.dev/json/notebook.json");
+  const data = await response.json();
+  showProduct(data);
+}
+
+fetchProduct();
+
+interface Product {
+  nome: string;
+  preco: number;
+  descricao: string;
+  garantia: string;
+  seguroAcidentes: boolean;
+  empresaFabricante: {
+    fundacao: number;
+    nome: string;
+    pais: string;
+  };
+  empresaMontadora: {
+    fundacao: number;
+    nome: string;
+    pais: string;
+  };
+}
+
+function showProduct(data: Product) {
+  document.body.innerHTML = `
+  <div>
+    <h2>${data.nome}</h2>
+    <p>${data.preco}</p>
+    <div>
+      <h3>${data.empresaFabricante.nome}</h3>
+    </div>
+    <div>
+      <h3>${data.empresaMontadora.nome}</h3>
+    </div>
+  </div>
+  `
+}
