@@ -111,7 +111,7 @@ function mostrarCategoria(categoria) {
 }
 mostrarCategoria("Full-Stack");
 // Exercício 4 
-// Desina a interface da API: https://api.origamid.dev/json/notebook.json e mostre os dados na tela.
+// Defina a interface da API: https://api.origamid.dev/json/notebook.json e mostre os dados na tela.
 async function fetchProduct() {
     const response = await fetch("https://api.origamid.dev/json/notebook.json");
     const data = await response.json();
@@ -119,7 +119,7 @@ async function fetchProduct() {
 }
 fetchProduct();
 function showProduct(data) {
-    document.body.innerHTML = `
+    document.body.innerHTML += `
   <div>
     <h2>${data.nome}</h2>
     <p>${data.preco}</p>
@@ -132,3 +132,14 @@ function showProduct(data) {
   </div>
   `;
 }
+// Array
+const numeros = [10, 20, 30, 40, 50, 60];
+const valores = [10, 20, "Taxas", 40, "Produtos", 60, "Descontos"];
+function maiorQue10(data) {
+    return data.filter((n) => n > 10);
+}
+function filtrarValores(data) {
+    return data.filter((item) => typeof item === "number");
+}
+console.log(filtrarValores(valores));
+console.log(maiorQue10(numeros));

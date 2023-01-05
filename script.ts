@@ -140,7 +140,7 @@ function mostrarCategoria(categoria: Categorias) {
 mostrarCategoria("Full-Stack");
 
 // Exercício 4 
-// Desina a interface da API: https://api.origamid.dev/json/notebook.json e mostre os dados na tela.
+// Defina a interface da API: https://api.origamid.dev/json/notebook.json e mostre os dados na tela.
 async function fetchProduct() {
   const response = await fetch("https://api.origamid.dev/json/notebook.json");
   const data = await response.json();
@@ -149,26 +149,24 @@ async function fetchProduct() {
 
 fetchProduct();
 
+interface Empresa {
+  fundacao: number;
+  nome: string;
+  pais: string;
+}
+
 interface Product {
   nome: string;
   preco: number;
   descricao: string;
   garantia: string;
   seguroAcidentes: boolean;
-  empresaFabricante: {
-    fundacao: number;
-    nome: string;
-    pais: string;
-  };
-  empresaMontadora: {
-    fundacao: number;
-    nome: string;
-    pais: string;
-  };
+  empresaFabricante: Empresa;
+  empresaMontadora: Empresa;
 }
 
 function showProduct(data: Product) {
-  document.body.innerHTML = `
+  document.body.innerHTML += `
   <div>
     <h2>${data.nome}</h2>
     <p>${data.preco}</p>
@@ -181,3 +179,15 @@ function showProduct(data: Product) {
   </div>
   `
 }
+
+// Array
+const numeros = [10, 20, 30, 40, 50, 60];
+const valores = [10, 20, "Taxas", 40, "Produtos", 60, "Descontos"];
+function maiorQue10(data: number[]) {
+  return data.filter((n) => n > 10);
+}
+function filtrarValores(data: (string | number)[]) {
+  return data.filter((item) => typeof item === "number");
+}
+console.log(filtrarValores(valores));
+console.log(maiorQue10(numeros));
