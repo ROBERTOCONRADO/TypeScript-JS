@@ -183,11 +183,55 @@ function showProduct(data: Product) {
 // Array
 const numeros = [10, 20, 30, 40, 50, 60];
 const valores = [10, 20, "Taxas", 40, "Produtos", 60, "Descontos"];
-function maiorQue10(data: number[]) {
+function maiorQue10(data: Array<number>) {
   return data.filter((n) => n > 10);
 }
-function filtrarValores(data: (string | number)[]) {
+function filtrarValores(data: Array<number | string>) {
   return data.filter((item) => typeof item === "number");
 }
 console.log(filtrarValores(valores));
 console.log(maiorQue10(numeros));
+
+// Exercício 5 
+// Defina a interface da API: https://api.origamid.dev/json/cursos.json e mostre os dados na tela.
+// Existem apenas dois níveis de cursos, iniciante e avançado.
+// Se for para iniciante pinte o título de azul, para avançado pinte de vermelho.
+
+async function fetchCursos() {
+  const response = await fetch('https://api.origamid.dev/json/cursos.json');
+  const data = await response.json();
+  mostrarCursos(data);
+}
+
+fetchCursos();
+
+interface Curso {
+  nome: string;
+  aulas: number;
+  gratuito: boolean;
+  horas: number;
+  idAulas: number[];
+  tags: string[];
+  nivel: 'iniciante' | 'avancado';
+}
+
+function mostrarCursos(cursos: Curso[]) {
+  cursos.forEach(curso => {
+    let color;
+    if(curso.nivel === 'iniciante') {
+      color = 'blue';
+    } else if(curso.nivel === 'avancado') {
+      color = 'red';
+    }
+    document.body.innerHTML += `
+      <div>
+        <h2 style="color: ${color};">${curso.nome}</h2>
+        <p>Horas: ${curso.horas}</p>
+        <p>Aulas: ${curso.horas}</p>
+        <p>Tipo: ${curso.gratuito ? 'Free' : 'paid out' }</p>
+        <p>Tags: ${curso.tags.join(", ")}</p>
+        <p>Aulas: ${curso.idAulas.join(" | ")}</p>
+      </div>
+    `
+  })
+}
