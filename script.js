@@ -174,3 +174,48 @@ function mostrarCursos(cursos) {
     `;
     });
 }
+// instanceof
+class Product {
+    nome;
+    constructor(nome) {
+        this.nome = nome;
+    }
+}
+class Livro extends Product {
+    autor;
+    constructor(nome, autor) {
+        super(nome);
+        this.autor = autor;
+    }
+}
+class Jogo extends Product {
+    jogadores;
+    constructor(nome, jogadores) {
+        super(nome);
+        this.jogadores = jogadores;
+    }
+}
+function buscarProduct(busca) {
+    if (busca === 'O Hobbit') {
+        return new Livro('O hobbit', 'J. R. R. Tolkien');
+    }
+    if (busca === 'Dark Souls') {
+        return new Jogo('Dark Souls', 1);
+    }
+    return null;
+}
+const product = buscarProduct('O Hobbit');
+if (product instanceof Livro) {
+    console.log(product.autor);
+}
+if (product instanceof Jogo) {
+    console.log(product.nome);
+}
+// Exercício 
+// 1 - Selecione o link utilizando o método getelementById.
+// 2 - Substitua o href do link(HTMLAnchorElement) de http:// para https://
+//<a id="origamid" href="http://www.origamid.com">Origamid</a>
+const link = document.getElementById('origamid');
+if (link instanceof HTMLAnchorElement) {
+    link.href = link.href.replace('http://', 'https://');
+}

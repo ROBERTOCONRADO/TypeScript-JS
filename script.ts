@@ -240,40 +240,33 @@ function mostrarCursos(cursos: Curso[]) {
 
 class Product {
   nome: string;
-  preco: number;
-  constructor(nome: string, preco: number) {
+  constructor(nome: string) {
     this.nome = nome;
-    this.preco = preco;
-  }
-  precoReal() {
-    return `R$ ${this.preco}`;
   }
 }
 
-const livro = new Product('A Guerra dos Tronos', 200);
-
-console.log(livro instanceof Product);
-
-class Livro {
+class Livro extends Product {
   autor: string;
-  constructor(autor: string) {
+  constructor(nome: string, autor: string) {
+    super(nome);
   this.autor = autor;
  }
 }
 
-class Jogo {
+class Jogo extends Product {
   jogadores: number;
-  constructor(jogadores: number) {
+  constructor(nome: string, jogadores: number) {
+    super(nome);
   this.jogadores = jogadores;
  }
 }
 
 function buscarProduct(busca: string) {
   if (busca === 'O Hobbit') {
-    return new Livro('J. R. R. Tolkien');
+    return new Livro('O hobbit', 'J. R. R. Tolkien');
   }
   if (busca === 'Dark Souls') {
-    return new Jogo(1);
+    return new Jogo('Dark Souls', 1);
   }
   return null;
 }
@@ -285,5 +278,16 @@ if (product instanceof Livro) {
 }
 
 if (product instanceof Jogo) {
-  console.log(product.jogadores);
+  console.log(product.nome);
+}
+
+// Exercício 
+// 1 - Selecione o link utilizando o método getelementById.
+// 2 - Substitua o href do link(HTMLAnchorElement) de http:// para https://
+//<a id="origamid" href="http://www.origamid.com">Origamid</a>
+
+const link = document.getElementById('origamid');
+
+if(link instanceof HTMLAnchorElement) {
+  link.href = link.href.replace('http://', 'https://');
 }
