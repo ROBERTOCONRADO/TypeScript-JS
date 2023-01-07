@@ -235,3 +235,55 @@ function mostrarCursos(cursos: Curso[]) {
     `
   })
 }
+
+// instanceof
+
+class Product {
+  nome: string;
+  preco: number;
+  constructor(nome: string, preco: number) {
+    this.nome = nome;
+    this.preco = preco;
+  }
+  precoReal() {
+    return `R$ ${this.preco}`;
+  }
+}
+
+const livro = new Product('A Guerra dos Tronos', 200);
+
+console.log(livro instanceof Product);
+
+class Livro {
+  autor: string;
+  constructor(autor: string) {
+  this.autor = autor;
+ }
+}
+
+class Jogo {
+  jogadores: number;
+  constructor(jogadores: number) {
+  this.jogadores = jogadores;
+ }
+}
+
+function buscarProduct(busca: string) {
+  if (busca === 'O Hobbit') {
+    return new Livro('J. R. R. Tolkien');
+  }
+  if (busca === 'Dark Souls') {
+    return new Jogo(1);
+  }
+  return null;
+}
+
+const product = buscarProduct('O Hobbit');
+
+if (product instanceof Livro) {
+  console.log(product.autor);
+}
+
+if (product instanceof Jogo) {
+  console.log(product.jogadores);
+}
