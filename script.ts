@@ -291,3 +291,22 @@ const link = document.getElementById('origamid');
 if(link instanceof HTMLAnchorElement) {
   link.href = link.href.replace('http://', 'https://');
 }
+
+// Exercício 
+// Selecione os elementos com classe link
+// Crie uma função que deve ser executada para cada elemento.
+// Modificar através de função o estilo color e border.
+
+const links = document.querySelectorAll('.link');
+
+function ativarElemento(elemento: HTMLElement) {
+  elemento.style.color = 'violet';
+  elemento.style.textDecoration = 'none';
+  elemento.style.border = '2px solid black';
+}
+
+links.forEach((link) => {
+  if(link instanceof HTMLElement) {
+    ativarElemento(link);
+  }
+});
