@@ -215,9 +215,9 @@ if (product instanceof Jogo) {
 // 1 - Selecione o link utilizando o método getelementById.
 // 2 - Substitua o href do link(HTMLAnchorElement) de http:// para https://
 //<a id="origamid" href="http://www.origamid.com">Origamid</a>
-const link = document.getElementById('origamid');
-if (link instanceof HTMLAnchorElement) {
-    link.href = link.href.replace('http://', 'https://');
+const linkk = document.getElementById('origamid');
+if (linkk instanceof HTMLAnchorElement) {
+    linkk.href = linkk.href.replace('http://', 'https://');
 }
 // Exercício 
 // Selecione os elementos com classe link
