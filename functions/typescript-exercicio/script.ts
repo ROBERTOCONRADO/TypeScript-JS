@@ -9,4 +9,4 @@ function arredondar(valor: number | string): number | string {
 }
 
 console.log(arredondar(200.32));
-console.log(arredondar("203.32"));
+console.log(arredondar("203.62"));
